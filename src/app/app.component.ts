@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   public ratio: number = 30;
   public evolving: boolean = false;
   public readonly MIN_RATIO: number = 10;
-  public readonly MAX_RATIO: number = 50;
+  public readonly MAX_RATIO: number = 60;
 
   @ViewChild(BoardComponent) private board!: BoardComponent;
 
@@ -55,6 +55,13 @@ export class AppComponent implements OnInit {
     if(this.form.controls.ratio.value === this.ratio) {
       this.notificationService.info('Ratio already set to current value.')
       return
+    }
+
+    if(this.form.controls.ratio.value % 1 !== 0) {
+      this.ratio = Math.floor(this.form.controls.ratio.value);
+      this.notificationService.warning(`Board ratio can't be a decimal number!`);
+      this.form.controls.ratio.setValue(Math.floor(this.form.controls.ratio.value));
+      return;
     }
 
     if (this.form.controls.ratio.value < this.MIN_RATIO) {
