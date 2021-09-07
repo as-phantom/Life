@@ -23,8 +23,8 @@ export class BoardComponent implements OnChanges {
     this.nextGeneration = new Array(this.gridSize);
 
     for (let i = 0; i < this.grid.length; i++) {
-      this.grid[i] = new Array(this.gridSize * 2);
-      this.nextGeneration[i] = new Array(this.gridSize * 2);
+      this.grid[i] = new Array(this.gridSize);
+      this.nextGeneration[i] = new Array(this.gridSize);
     }    
     
     this.reset();
@@ -77,7 +77,7 @@ export class BoardComponent implements OnChanges {
 
         // Collect neighbours:
         if (row === 0 || col === 0 || row === this.grid.length - 1 || col === this.grid.length - 1) {
-          // Means we're in the one of four sides of the matrix.
+          // Means we're in the one of four side walls of the matrix.
           if (row === 0 && col === 0) {
             // Top left corner, the neighbours are the ones on the right, on the bottom right diagonal and on the bottom.
             neighbours.push(
