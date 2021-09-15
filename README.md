@@ -1,4 +1,4 @@
-# Conway's Game of Life (Life) - Coding challenge
+# Conway's Game of Life (Life) - Coding Challenge
 
 ## Created with Angular version 12.2.4.
 
