@@ -3,7 +3,7 @@
    min-width: 0.8rem;
    display: table-cell;
    border: 1.5px solid black;
-   transition: background-color 0.1s linear;
+   transition: background-color 0.4s;
 
    &.alive {
       background: white;
@@ -19,7 +19,5 @@
 
    &:hover {
       cursor: pointer;
-      // If background is set, there is unwanted effect, when clicking on cell, the cell next to it blinks for a moment!
-      // (trackBy fixes it) Also fixes the transition that otherwise didn't applied!
    }
 }
